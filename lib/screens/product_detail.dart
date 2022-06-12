@@ -41,7 +41,6 @@ class _ProductDetailState extends State{
         ],
       ),
       body: buildProductDetail(),
-      
     );
   }
 
@@ -52,7 +51,7 @@ class _ProductDetailState extends State{
   void selectProcess(Options options) async {
     switch(options){
       case Options.delete:
-        await dbHelper.delete(product.id);
+        await dbHelper.delete(product.id?? 0);
         Navigator.pop(context, true);
         break;
       default:
